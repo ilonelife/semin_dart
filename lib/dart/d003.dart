@@ -8,6 +8,7 @@ void main() {
   print(bedro.name);
   print(yohan.name);
   print(ruga.name);
+  print('hi....');
 }
 
 class Cleric {
