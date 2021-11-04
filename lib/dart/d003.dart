@@ -1,15 +1,12 @@
+
+
 void main() {
   Cleric bedro = Cleric(name: '베드로', hp: 30, mp: 5);
-  Cleric yohan = Cleric(name: '요한', hp: 15, mp: 7);
-  Cleric ruga = Cleric(name: '루가', hp: 40, mp: 6);
 
-  print(bedro.name);
-  print(yohan.name);
-  print(ruga.name);
+  bedro.selfAid();
 
-  print('''
-  여기 3명의 성직자가 있다.  $bedro.name  
-  ''');
+  print('성직자 이름은: ${bedro.name}\n 성직자 핼스: ${bedro.hp}\n 성직자 마법: ${bedro.mp}\n');
+  print(bedro.introduce());
 }
 
 class Cleric {
@@ -23,8 +20,12 @@ class Cleric {
   Cleric({this.name, this.hp, this.mp});
 
   void selfAid() {
-    if(int i = 0; i < maxHP; i++) {
-      mp -= 5;
-    }
+    // mp 5 소비하기
+    mp = mp - 5;
+    hp = maxHP;
+  }
+
+  String introduce() {
+    return '$mp, $hp';
   }
 }
