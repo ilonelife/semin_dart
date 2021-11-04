@@ -23,7 +23,8 @@ class Cleric {
   Cleric({this.name, this.hp, this.mp});
 
   void selfAid() {
-    mp -= 5;
-
+    if(int i = 0; i < maxHP; i++) {
+      mp -= 5;
+    }
   }
 }
