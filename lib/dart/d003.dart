@@ -1,5 +1,3 @@
-
-
 void main() {
   Cleric bedro = Cleric(name: '베드로', HP: 30, MP: 5);
   Cleric yohan = Cleric(name: '요한', HP: 15, MP: 7);
@@ -8,7 +6,6 @@ void main() {
   print(bedro.name);
   print(yohan.name);
   print(ruga.name);
-  print('hi....');
 }
 
 class Cleric {
