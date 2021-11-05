@@ -24,9 +24,14 @@ void main() {
   3초 기도 후 마법이 ${cleric.pray(3)} 증가
   ''');
 
+  // final 은 런타임 상수, 실행 후 날아감
+  // const 는 컴파일 상수 , 실행 후에도 남아 있음
   print('''
   현재 핼스: ${cleric.hp}
   현재 마법: ${cleric.mp}''');
+
+  // print(cleric.pray(1));
+  // print('회복량 ${cleric.pray(1)}');
 }
 
 class Cleric {
@@ -37,7 +42,8 @@ class Cleric {
   final int maxHp = 50; // 최대 HP
   final int maxMp = 10;
 
-  Cleric({this.name, this.hp, this.mp});
+  Cleric({this.name, this.hp, this.mp})
+
 
   void selfAid() {
     mp -= 5;
@@ -50,13 +56,21 @@ class Cleric {
   int pray(int sec) {
     int prayMp = 0;
 
-    prayMp = min((sec + Random().nextInt(3)), maxMp);
+    prayMp = min((sec + Random().nextInt(3)), maxMp);   // max 는 반대 함수
 
     mp = mp + prayMp;
+
+    // mp = mp + sec;
+    // mp + _random(3);
+
+    // if ( mp > mpMax) {
+    //   mp = mpMax;
+    // }
     return mp;
   }
 
   String introduce() {
     return '$hp, $mp';
   }
+
 }
