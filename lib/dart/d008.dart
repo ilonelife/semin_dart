@@ -11,6 +11,8 @@ void main() {
   print(word.isVowel(7)); // true
   print(word.isVowel(8)); // true
 
+  print('test..git... push');
+
 }
 
 class Word {
