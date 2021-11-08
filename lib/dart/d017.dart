@@ -10,7 +10,10 @@ void main() {
 
   MinMax minmax = MinMax();
 
-  print('큰수 작은수 구하기\n숫자 5개를 입력하세요\n');
+  print('''
+  큰수 작은수 구하기
+  숫자 5개를 입력하세요
+  ''');
 
   for (int i = 0; i < count; i++) {
     list.add(int.parse(stdin.readLineSync()));
