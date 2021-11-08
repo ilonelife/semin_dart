@@ -15,7 +15,7 @@ void main() {
 
   SliceNum sliceNum = SliceNum();
 
-  print('자르기 좋은 숫자를 입력하세요');
+  print('자르기 좋은 숫자를 입력하세요~');
   String yourNum = stdin.readLineSync();
 
   result = sliceNum.isSameNum(yourNum);
