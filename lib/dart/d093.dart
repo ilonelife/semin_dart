@@ -23,7 +23,7 @@ void main() {
   if(result) {
     print(yourNum);
   } else {
-    print('false');
+    print('No');
   }
 
 }
