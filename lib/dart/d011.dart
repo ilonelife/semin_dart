@@ -10,7 +10,7 @@ import 'dart:io';
 void main() {
   AlphabetWord word = AlphabetWord();
 
-  print('알파벳을 입력하세요');
+  print('대문자 알파벳 한 자를 입력하세요');
   String s = stdin.readLineSync();
 
   print('$s는 ${word.whichWord(s)}번째 글자입니다.');
