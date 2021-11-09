@@ -10,6 +10,7 @@ import 'dart:io';
 조건에 맞지 않으면 No를 출력하시오
  */
 
+// 내 코드
 void main() {
   bool result;
 
@@ -29,17 +30,58 @@ void main() {
 }
 
 class SliceNum {
-  String letters;
-
-  SliceNum();
+  String digit;
 
   bool isSameNum(String num) {
-    letters = num[0];
+    digit = num[0];
     for (int i = 0; i < num.length; i++) {
-      if (!letters.contains(num.substring(i, i + 1))) {
+      if (digit != num.substring(i, i + 1)) {
         return false;
       }
     }
     return true;
   }
 }
+
+// 재승씨 코드
+// void main() {
+//   CheckNum checkNum = CheckNum();
+//
+//   print(checkNum.findNum('44444'));
+//   print(checkNum.findNum('23329'));
+//
+// }
+//
+//
+// class CheckNum {
+//   String findNum(String num) {
+//     bool isGoodNumbers = true;
+//
+//     for(int i = 0; i < num.length - 1; i++) {
+//       isGoodNumbers = isGoodNumbers && (num[i] == num[i + 1]);
+//     }
+//
+//     return isGoodNumbers ? num : 'No';
+//   }
+// }
+////////////////////////////////////////////////////
+
+//  경환씨 코드
+// void main() {
+//   print(tester(4444));
+// }
+//
+// String tester(int a) {
+//   String result = '$a';
+//   int num = a;
+//
+//   int digit = num % 10;
+//   while (num > 0) {
+//     if (digit != num % 10) {
+//       result = 'No';
+//     }
+//     num = num ~/ 10;
+//   }
+//   return result;
+// }
+
