@@ -3,7 +3,7 @@ import 'dart:math';
 void main() {
   int min = -10;
   int max = 10;
-  Random rnd = new Random();
+  Random rnd = Random();
 
   int abs = min + rnd.nextInt(max - min);
 
