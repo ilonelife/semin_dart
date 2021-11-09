@@ -17,14 +17,9 @@ void main() {
 }
 
 class AlphabetWord {
-  String letters;
   String alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-  AlphabetWord();
-
-  int whichWord(letters) {
-    for (int i = 0; i < 26; i++) {
-      return alphabet.indexOf(letters.substring(i, i + 1));
-    }
+  int whichWord(String letters) {
+      return alphabet.indexOf(letters) + 1;
   }
 }
