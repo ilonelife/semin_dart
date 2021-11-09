@@ -13,8 +13,8 @@ void main() {
 
   AbsNum absNum = AbsNum();
 
-  print (abs);
-  print(absNum.findAbs(abs));
+  print ('100 ~ -100 랜덤수 : $abs');
+  print('절대값 결과 : ${absNum.findAbs(abs)}');
 }
 
 class AbsNum {
