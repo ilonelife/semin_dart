@@ -11,22 +11,28 @@
 void main() {
   int resultNum = 5;
   int tolerance = 3;
-  String result;
+
+  ExerciseSeq exerciseSeq = ExerciseSeq();
+
+  print(exerciseSeq.SequenceNum(5, 3));
+
+}
+
+class ExerciseSeq {
+  String result = '';
   List<int> sequence = [];
 
-  for (int i = 0; i < 10; i++) {
-    if (i == 0) {
-      resultNum = 5;
-      sequence.add(resultNum);
-    } else {
-      resultNum = resultNum + tolerance;
-      sequence.add(resultNum);
-      // sequence[i] = resultNum;  에러 남.. 왜지?
+  String SequenceNum(int resultNum, int tolerance) {
+    for (int i = 0; i < 10; i++) {
+      if (i == 0) {
+        resultNum = 5;
+        sequence.add(resultNum);
+      } else {
+        resultNum = resultNum + tolerance;
+        sequence.add(resultNum);
+      }
+      result = result + sequence[i].toString() + ' ';
     }
+    return result;
   }
- print(sequence);
- // print(new String.fromCharCodes(sequence));
-  result = sequence.toString();
-  print(result);
-
 }
