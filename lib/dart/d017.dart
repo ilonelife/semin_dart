@@ -54,9 +54,9 @@ void main() {
     inputNumbers.add(int.parse(stdin.readLineSync()));
   }
 
-  Numbers numbers = Numbers(inputNumbers);
+  Numbers numbers = Numbers([1, 2, 3, 4, 5]);
 
-  print('최대값 : ${numbers.maxNumbers()}');
+  print('최대값 : ${numbers.maxNumbers([1, 2, 3, 4, 5])}');
   print('최소값 : ${numbers.minNumbers()}');
 }
 
@@ -65,7 +65,7 @@ class Numbers {
 
   Numbers(this.numbers);
 
-  int maxNumbers() {
+  int maxNumbers(List<int> inputNumbers) {
     int maxNum = numbers[0];
 
     // 몇번 돌며 수행할지 신경 않써도 됨. 그냥 다 돌아...
