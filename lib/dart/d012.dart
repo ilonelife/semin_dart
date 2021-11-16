@@ -24,5 +24,7 @@ class AbsNum {
       num = num * -1;
     }
     return num;
+
+    // return num < 0 ? -num : num;
   }
 }
