@@ -30,8 +30,6 @@ void main() {
       print('noisy');
     }
   }
-
-
 }
 
 class Park {
@@ -44,24 +42,33 @@ class Park {
     List<bool> result = [];
 
     for (final tree in trees) {
-      bool isSilent = (tree.x - gongSa.x) * (tree.x - gongSa.x) +
-              (tree.y - gongSa.y) * (tree.y - gongSa.y) >=
-          gongSa.R * gongSa.R;
+      bool isSilent = gongSa.getSilent(tree);
+      result.add(isSilent);
+
+      // bool isSilent = (tree.x - gongSa.x) * (tree.x - gongSa.x) +
+      //         (tree.y - gongSa.y) * (tree.y - gongSa.y) >=
+      //     gongSa.R * gongSa.R;
     }
+
+    return result;
   }
 }
 
 class GongSa {
-  int x;
-  int y;
-  int R;
+  final int x;
+  final int y;
+  final int R;
 
   GongSa(this.x, this.y, this.R);
+
+  bool getSilent(Tree tree) {
+    return (tree.x - x) *(tree.x - x) + (tree.y - y) * (tree.y - y) >= R * R;
+  }
 }
 
 class Tree {
-  int x;
-  int y;
+  final int x;
+  final int y;
 
   Tree(this.x, this.y);
 }
