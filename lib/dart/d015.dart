@@ -21,13 +21,12 @@ void main() {
 
 class CheckNum {
   String countNum(String num) {
-    String result = '';
-    int count;
+    String result = 'OK';
 
-    if (num.length == 11) {
+    if (num.length >= 11) {
       result = 'OK';
     } else {
-      count = 11 - num.length;
+      int count = 11 - num.length;
       result = count.toString();
     }
 

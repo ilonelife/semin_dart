@@ -1,3 +1,4 @@
+
 import 'dart:math';
 
 void main() {
@@ -7,49 +8,39 @@ void main() {
       .forEach((e) => print(e.trader.name));
   print('');
 
+
   print('2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오');
- // Set<String> traderCity = transactions.where((e) => true).toSet();
-
-  transactions.where((Transaction e) => (e.trader.city).isNotEmpty)
-      .toSet().toList()
-      .forEach((e) => print(e.trader.city));
-
-  // transactions.where((Transaction e) => true)
-  //     .toSet().toList().forEach((e) => print((e.trader.city)));
+  transactions.map((Transaction e) => e.trader.city).toSet().forEach(print);
   print('');
 
   print('3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오');
-  (transactions.where((e) => e.trader.city == "Cambridge").toList()
-  ..sort((a, b) => a.trader.name.compareTo(b.trader.name))).forEach((e) => print(e.trader.name));
+  (transactions.where((e) => e.trader.city == 'Cambridge').toList()
+     ..sort((a, b) => a.trader.name.compareTo(b.trader.name)))
+      .map((e) => e.trader.name)
+      .toSet()
+      .forEach(print);
   print('');
 
   print('4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오');
-  (transactions.where((e) => true).toList()
-    ..sort((a,b) => a.trader.name.compareTo(b.trader.name))).forEach((e) => print(e.trader.name));
+  (transactions..sort((a, b) => a.trader.name.compareTo(b.trader.name)))
+    .map((e) => e.trader.name).toSet().forEach((e) => print(e));
   print('');
 
   print('5. 밀라노에 거래자가 있는가?');
-  transactions.where((e) => e.trader.city == 'Milan').toList()
-    .forEach((e) => print(e.trader.name));
+  print(transactions.any((e) => e.trader.city == 'Milan'));
   print('');
 
   print('6. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오');
-  transactions.where((e) => e.trader.city == 'Cambridge').toList()
-      .forEach((e) => print(e.value));
+  transactions.where((e) => e.trader.city == 'Cambridge').map((e) => e.value).forEach((e) {print(e); });
   print('');
 
   print('7. 전체 트랜잭션 중 최대값을 얼마인가?');
-  List<int> transactionValue = [];
-
-  for (int i = 0; i < 5; i++) {
-    transactionValue.add(transactions[i].value);
-  }
-  print(transactionValue.reduce((a, b) => max(a, b)));
-  print('');
+  print(transactions.map((e) => e.value).reduce((value, element) => max(value, element)));
 
   print('8. 전체 트랜잭션 중 최소값은 얼마인가?');
+  print(transactions.map((e) => e.value).reduce((value, element) => min(value, element)));
 
-  print(transactionValue.reduce((a, b) => min(a, b)));
+
 }
 
 class Trader {
@@ -57,6 +48,7 @@ class Trader {
   String city;
 
   Trader(this.name, this.city);
+
 }
 
 class Transaction {
@@ -65,6 +57,7 @@ class Transaction {
   int value;
 
   Transaction(this.trader, this.year, this.value);
+
 }
 
 final transactions = [
@@ -74,4 +67,6 @@ final transactions = [
   Transaction(Trader("Mario", "Milan"), 2012, 710),
   Transaction(Trader("Mario", "Milan"), 2012, 700),
   Transaction(Trader("Alan", "Cambridge"), 2012, 950),
+
+
 ];
