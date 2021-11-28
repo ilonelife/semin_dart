@@ -7,6 +7,12 @@ void main() {
   slime.run();    //2
   monster.run();   // 2
 
+  final List<int> items = [1,2,3,4,5];
+
+  items.forEach((int item) => print(item));
+
+
+
 
 }
 
