@@ -10,72 +10,34 @@
 않기 때문에 12 가지만을 고려하면 됨에 유의하십시오.
  */
 
+import 'dart:convert';
+import 'dart:io';
+
 void main() {
-  List<int> cards = [9, 2, 3, 8];
-  int n = 4;
-  int r = 4;
-  int depth = 0;
+  List<String> inputs = stdin.readLineSync(encoding: utf8).split(' ');
 
-  List<int> result = [];
-  List<bool> visited = [];
+  CardSort cardSort = CardSort();
 
-  Combination combination = Combination();
-
-  combination.combiResult(cards, depth, n, r);
+  print(cardSort.findMax(inputs));
 
 }
 
-// 숫자 4개를 입력받고
-// 4개 숫자를 뽑는다
-// 2개 숫자를 만들고 더한다
-// 이러한 결과를 리스트에 저장하고
-// 최대값을 구한다
+class CardSort {
+  int findMax (List<String> inputs) {
+    List<int> cards = [];
+    int sum = 0;
 
-
-class Combination {
-  List<int> result = [];
-  List<bool> visited = [];
-
-  void combiResult(List<int> arr, int depth, int n, int r ) {
-    if (depth == r) {
-      print_arr(arr, r);
-      return;
+    for( int i = 0; i < 4; i++) {
+      int temp = int.parse(inputs[i]);
+      cards.add(temp);
     }
 
-    for (int i = 0; i < n; i++) {
-      if (visited[i] != true) {
-        visited[i] = true;
-        result[depth] = arr[i];
-        combiResult(arr, depth, n, r);
-        result[depth] = 0;
-        visited[i] = false;
-      }
-    }
+    cards.sort();
+
+    String num1 = cards[3].toString() + cards[1].toString();
+    String num2 = cards[2].toString() + cards[0].toString();
+    sum = int.parse(num1) + int.parse(num2);
+
+    return sum;
   }
-
-  void print_arr(List<int> arr, int r) {
-    for (int i =0; i < r; i++) {
-      print(arr[i]);
-    }
-  }
-
-  // int combiResult(List<int> arr, depth, int n, int r) {
-  //
-  //   if (depth == r) {
-  //     print('$arr  $r');
-  //     return 0;
-  //   }
-  //
-  //   for (int i = depth; i < n; i++) {
-  //     swap(arr, 4, i);
-  //     combiResult(arr, depth+1, n, r);
-  //     swap(arr, depth, i);
-  //   }
-  // }
-  //
-  // static void swap(List<int> arr, int depth, int i) {
-  //   int temp = arr[depth];
-  //   arr[depth] = arr[i];
-  //   arr[i] = temp;
-  // }
 }
